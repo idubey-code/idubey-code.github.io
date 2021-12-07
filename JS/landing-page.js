@@ -4,27 +4,31 @@ function show_result()
 {
   let stock = document.getElementById('search-value').value.toLowerCase();
 
-  let stocks = [];
+  if (stock!==''){
 
-  var count = 0;
+    let stocks = [];
 
-  for (let i=0; i<10; i++){
-      stocks.push(document.getElementsByClassName("stock")[i].id);
-  }
+    var count = 0;
 
-  for (var i = 0; i < stocks.length; i++)
-  {
-    if (stocks[i]!==stock) {
-      document.getElementsByClassName("stock")[i].style.display = "none";
-      count++;
+    for (let i=0; i<10; i++){
+        stocks.push(document.getElementsByClassName("stock")[i].id);
     }
-  }
-  if (count===10)
-  {
-    document.getElementsByClassName("error")[0].style.display = "block";
+
+    for (var i = 0; i < stocks.length; i++)
+    {
+      if (stocks[i]!==stock) {
+        document.getElementsByClassName("stock")[i].style.display = "none";
+        count++;
+      }
+    }
+    if (count===10)
+    {
+      document.getElementsByClassName("error")[0].style.display = "block";
+      // document.getElementsByClassName("show-all")[0].style.display = "block";
+      document.getElementById('search-value').value='';
+    };
     document.getElementsByClassName("show-all")[0].style.display = "block";
-    document.getElementById('search-value').value='';
-  }
+  };
 }
 
 // Show all function
@@ -52,4 +56,38 @@ function show_menu()
   {
     document.getElementById('search-value').readOnly = false;
   }
+}
+
+var pos1 = 0;
+
+window.onload = function(){
+  const rect = document.getElementById('sidebar').getBoundingClientRect();
+  pos1 = rect.left + window.scrollX;
+}
+
+// // Hide side bar function
+function hide_sidebar(){
+
+  const rect = document.getElementById('sidebar').getBoundingClientRect();
+  var pos2 = rect.left + window.scrollX;
+
+  if(pos1!==pos2){
+    document.getElementById('sidebar').classList.value='';
+    document.getElementsByClassName('logo-screen')[0].classList.value='logo-screen';
+    document.getElementsByClassName('search-bar')[0].classList.value='search-bar';
+    document.getElementsByClassName('error')[0].classList.value='error';
+    document.getElementsByClassName('show-all')[0].classList.value='show-all';
+    document.getElementsByClassName('stocks-scroll')[0].classList.value='stocks-scroll';
+
+    var status = document.getElementById('sidebar').classList.value;
+    if (status === 'active')
+    {
+        document.getElementById('search-value').readOnly = true;
+    }
+    else
+    {
+      document.getElementById('search-value').readOnly = false;
+    }
+  };
+
 }

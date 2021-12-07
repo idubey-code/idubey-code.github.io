@@ -28,6 +28,7 @@ div.frame {
   left: 50%;
   margin: -463px 0 0 -214px;
   border-radius: 12px;
+  transform: scale(0.7);
 }
 
 .logo-screen {
@@ -70,8 +71,8 @@ div.frame {
   position: absolute;
   margin: auto;
   left:35%;
-  top:24.5%;
-  font-size: 18px;
+  top:24%;
+  font-size: 17px;
   color: #c8d8e4;
   display: none;
 
@@ -92,8 +93,8 @@ div.frame {
   position: absolute;
   margin: auto;
   left:42%;
-  top:27%;
-  font-size: 18px;
+  top:26.5%;
+  font-size: 17px;
   color: #c8d8e4;
   text-decoration: underline;
   display: none;
@@ -118,7 +119,13 @@ div.frame {
   margin: auto;
   left: 10%;
   top: 28.7%;
-  overflow: scroll;
+  /* overflow: scroll; */
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  overflow-y: scroll;
+}
+
+.stocks-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .stocks-scroll.active {
@@ -128,8 +135,14 @@ div.frame {
   margin: auto;
   left: 10%;
   top: 28.7%;
-  overflow: scroll;
+  /* overflow: scroll; */
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  overflow-y: scroll;
   filter: blur(5px);
+}
+
+.stocks-scroll.active::-webkit-scrollbar{
+  display: none;
 }
 
 .stock {
