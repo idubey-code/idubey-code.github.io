@@ -29,18 +29,22 @@ function show_result()
     };
     document.getElementsByClassName("show-all")[0].style.display = "block";
   };
-}
+};
 
 // Show all function
 function show_all()
 {
   location.reload();
-}
+};
 
 // Slider menu function
 function show_menu()
 {
   document.getElementById('sidebar').classList.toggle('active');
+  document.getElementsByClassName('frame-button')[0].classList.toggle('active');
+  document.getElementsByClassName('frame-button').disabled = false;
+  document.getElementsByClassName('hidden-button')[0].classList.toggle('active');
+  document.getElementsByClassName('hidden-button').disabled = false;
   document.getElementsByClassName('logo-screen')[0].classList.toggle('active');
   document.getElementsByClassName('search-bar')[0].classList.toggle('active');
   document.getElementsByClassName('error')[0].classList.toggle('active');
@@ -56,38 +60,31 @@ function show_menu()
   {
     document.getElementById('search-value').readOnly = false;
   }
-}
-
-var pos1 = 0;
-
-window.onload = function(){
-  const rect = document.getElementById('sidebar').getBoundingClientRect();
-  pos1 = rect.left + window.scrollX;
-}
+};
 
 // // Hide side bar function
-function hide_sidebar(){
+function hide_sidebar()
+{
 
-  const rect = document.getElementById('sidebar').getBoundingClientRect();
-  var pos2 = rect.left + window.scrollX;
+  document.getElementById('sidebar').classList.value='';
+  document.getElementsByClassName('frame-button')[0].classList.value = 'frame-button';
+  document.getElementsByClassName('frame-button').disabled = true;
+  document.getElementsByClassName('hidden-button')[0].classList.value = 'hidden-button';
+  document.getElementsByClassName('hidden-button').disabled = true;
+  document.getElementsByClassName('logo-screen')[0].classList.value='logo-screen';
+  document.getElementsByClassName('search-bar')[0].classList.value='search-bar';
+  document.getElementsByClassName('error')[0].classList.value='error';
+  document.getElementsByClassName('show-all')[0].classList.value='show-all';
+  document.getElementsByClassName('stocks-scroll')[0].classList.value='stocks-scroll';
 
-  if(pos1!==pos2){
-    document.getElementById('sidebar').classList.value='';
-    document.getElementsByClassName('logo-screen')[0].classList.value='logo-screen';
-    document.getElementsByClassName('search-bar')[0].classList.value='search-bar';
-    document.getElementsByClassName('error')[0].classList.value='error';
-    document.getElementsByClassName('show-all')[0].classList.value='show-all';
-    document.getElementsByClassName('stocks-scroll')[0].classList.value='stocks-scroll';
+  var status = document.getElementById('sidebar').classList.value;
+  if (status === 'active')
+  {
+      document.getElementById('search-value').readOnly = true;
+  }
+  else
+  {
+    document.getElementById('search-value').readOnly = false;
+  }
 
-    var status = document.getElementById('sidebar').classList.value;
-    if (status === 'active')
-    {
-        document.getElementById('search-value').readOnly = true;
-    }
-    else
-    {
-      document.getElementById('search-value').readOnly = false;
-    }
-  };
-
-}
+};

@@ -18,6 +18,19 @@ input:focus {
   outline: none;
 }
 
+div.outer-frame {
+  height: 926px;
+  width : 428px;
+  background: #2b6777;
+  /* overflow: hidden; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -463px 0 0 -214px;
+  border-radius: 12px;
+  transform: scale(0.7);
+}
+
 div.frame {
   height: 926px;
   width : 428px;
@@ -28,7 +41,6 @@ div.frame {
   left: 50%;
   margin: -463px 0 0 -214px;
   border-radius: 12px;
-  transform: scale(0.7);
 }
 
 .logo-screen {
@@ -222,4 +234,54 @@ ul {
 
 #sidebar .line {
   border-top: 1px solid black;
+}
+
+.hidden-button {
+  width: 128px;
+  height: 926px;
+  top: 0.5%;
+  left: 428px;
+  position: absolute;
+  background: transparent;
+  transition: .4s;
+  border: none;
+  cursor: default;
+}
+
+.hidden-button.active {
+  width: 128px;
+  height: 926px;
+  top: 0.5%;
+  left: 300px;
+  position: absolute;
+  background: transparent;
+  transition: .4s;
+  border: none;
+  cursor: default;
+}
+
+.frame-button {
+  height: 926px;
+  width: 300px;
+  position: relative;
+  top: 50%;
+  left: -35%;
+  margin: -463px 0 0 -150px;
+  border: none;
+  background-color: transparent;
+  transition: .4s;
+  cursor: default;
+}
+
+.frame-button.active {
+  height: 926px;
+  width: 300px;
+  position: relative;
+  top: 50%;
+  left: 35%;
+  margin: -463px 0 0 -150px;
+  border: none;
+  background-color: transparent;
+  transition: .4s;
+  cursor: default;
 }
